@@ -11,7 +11,7 @@ import app from './http'
 import renderer from './renderer'
 
 // 2、接受客户端发来的请求， Node 服务器已经创建完成
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   // 接受请求，并响应返回 HTML
-  res.send(renderer())
+  res.send(renderer(req))
 })

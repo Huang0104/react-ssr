@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var expr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http */ \"./src/server/http.js\");\n/* harmony import */ var _renderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderer */ \"./src/server/renderer.js\");\n/**\r\n * 3、\r\n * 实现 React 服务器端渲染\r\n * -引入需要渲染的 React 组件\r\n * -使用 rebderToString() 方法将 React 组件转为 HTML\r\n * -将 HTML 渲染到客户端\r\n */\n// 1、导入 app\n\n // 2、接受客户端发来的请求， Node 服务器已经创建完成\n\n_http__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get('/', function (req, res) {\n  // 接受请求，并响应返回 HTML\n  res.send(Object(_renderer__WEBPACK_IMPORTED_MODULE_1__[\"default\"])());\n});\n\n//# sourceURL=webpack:///./src/server/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http */ \"./src/server/http.js\");\n/* harmony import */ var _renderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderer */ \"./src/server/renderer.js\");\n/**\r\n * 3、\r\n * 实现 React 服务器端渲染\r\n * -引入需要渲染的 React 组件\r\n * -使用 rebderToString() 方法将 React 组件转为 HTML\r\n * -将 HTML 渲染到客户端\r\n */\n// 1、导入 app\n\n // 2、接受客户端发来的请求， Node 服务器已经创建完成\n\n_http__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get('*', function (req, res) {\n  // 接受请求，并响应返回 HTML\n  res.send(Object(_renderer__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(req));\n});\n\n//# sourceURL=webpack:///./src/server/index.js?");
 
 /***/ }),
 
@@ -118,19 +118,43 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _htt
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _share_pages_Home_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../share/pages/Home/Home */ \"./src/share/pages/Home/Home.js\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/**\r\n * 代码优化\r\n */\n// 引入需要渲染的组件\n // 引入 renderToString\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  // 使用 rebderToString() 方法将 React 组件转为 HTML\n  var content = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_1__[\"renderToString\"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_share_pages_Home_Home__WEBPACK_IMPORTED_MODULE_0__[\"default\"], null));\n  return \"\\n  <html>\\n    <head>\\n      <title>React SSR</title>\\n    </head>\\n    <body>\\n      <div id='root'>\".concat(content, \"</div>\\n      <script src='bundle.js'></script>\\n    </body>\\n  </html>\\n\");\n});\n\n//# sourceURL=webpack:///./src/server/renderer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _share_routers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../share/routers */ \"./src/share/routers.js\");\n/**\r\n * 代码优化\r\n */\n// 引入 renderToString\n\n // 服务端路由\n\n // 将数组路由转换成组件路由\n\n // 数组路由\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (req) {\n  // 使用 rebderToString() 方法将 React 组件转为 HTML\n  var content = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_0__[\"renderToString\"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"StaticRouter\"], {\n    location: req.path\n  }, Object(react_router_config__WEBPACK_IMPORTED_MODULE_3__[\"renderRoutes\"])(_share_routers__WEBPACK_IMPORTED_MODULE_4__[\"default\"])));\n  return \"\\n  <html>\\n    <head>\\n      <title>React SSR</title>\\n    </head>\\n    <body>\\n      <div id='root'>\".concat(content, \"</div>\\n      <script src='bundle.js'></script>\\n    </body>\\n  </html>\\n\");\n});\n\n//# sourceURL=webpack:///./src/server/renderer.js?");
 
 /***/ }),
 
-/***/ "./src/share/pages/Home/Home.js":
-/*!**************************************!*\
-  !*** ./src/share/pages/Home/Home.js ***!
-  \**************************************/
+/***/ "./src/share/pages/Home.js":
+/*!*********************************!*\
+  !*** ./src/share/pages/Home.js ***!
+  \*********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction Home() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    onClick: function onClick() {\n      return console.log('this is the Click event');\n    }\n  }, \"Node \\u6B63\\u5728\\u76D1\\u542C Home\");\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/share/pages/Home/Home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nfunction Home() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    onClick: function onClick() {\n      return console.log('this is the Click event');\n    }\n  }, \"Node is listening on Home\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__[\"Link\"], {\n    to: \"/list\"\n  }, \"link to List\")));\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/share/pages/Home.js?");
+
+/***/ }),
+
+/***/ "./src/share/pages/List.js":
+/*!*********************************!*\
+  !*** ./src/share/pages/List.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction List() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    onClick: function onClick() {\n      return console.log('this is the list');\n    }\n  }, \"Node is listening on List\");\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (List);\n\n//# sourceURL=webpack:///./src/share/pages/List.js?");
+
+/***/ }),
+
+/***/ "./src/share/routers.js":
+/*!******************************!*\
+  !*** ./src/share/routers.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/Home */ \"./src/share/pages/Home.js\");\n/* harmony import */ var _pages_List__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/List */ \"./src/share/pages/List.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ([{\n  path: '/',\n  component: _pages_Home__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  exact: true\n}, {\n  path: '/list',\n  component: _pages_List__WEBPACK_IMPORTED_MODULE_1__[\"default\"] // exact: true\n\n}]);\n\n//# sourceURL=webpack:///./src/share/routers.js?");
 
 /***/ }),
 
@@ -164,6 +188,28 @@ eval("module.exports = require(\"react\");\n\n//# sourceURL=webpack:///external_
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-router-config":
+/*!**************************************!*\
+  !*** external "react-router-config" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-config\");\n\n//# sourceURL=webpack:///external_%22react-router-config%22?");
+
+/***/ }),
+
+/***/ "react-router-dom":
+/*!***********************************!*\
+  !*** external "react-router-dom" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
 
 /***/ })
 
