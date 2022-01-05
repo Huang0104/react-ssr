@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { UserList } from '../store/action/user.action'
 
-function List() {
-  return <div onClick={() => console.log('this is the list')}>
-    Node is listening on List
+function List({user, dispatch}) {
+  useEffect(() => {
+    dispatch(UserList())
+  }, [])
+  return <div>
+    This is userList
+    <ul>
+      {
+        user.map(item => <li key={item.id}>{item.name}</li>)
+      }
+    </ul>
   </div>
 }
 
-export default List
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(List)
