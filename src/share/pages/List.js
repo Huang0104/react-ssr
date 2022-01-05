@@ -16,8 +16,16 @@ function List({user, dispatch}) {
   </div>
 }
 
+// 创建 loadDate 函数，获取组件所需数据，给服务器调用
+function loadData(store) {
+  return store.dispatch(UserList())
+}
+
 const mapStateToProps = state => ({
   user: state.user
 })
 
-export default connect(mapStateToProps)(List)
+export default {
+  component: connect(mapStateToProps)(List),
+  loadData
+}

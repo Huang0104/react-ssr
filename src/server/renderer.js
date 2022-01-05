@@ -11,14 +11,23 @@ import { StaticRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 // 数组路由
 import routers from '../share/routers'
+import { Provider } from 'react-redux'
+import serialize from 'serialize-javascript'
 
-export default (req) => {
+
+export default (req, store) => {
   // 使用 rebderToString() 方法将 React 组件转为 HTML
   const content = renderToString(
-    <StaticRouter location={req.path}>
-      {renderRoutes(routers)}
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.path}>
+        {renderRoutes(routers)}
+      </StaticRouter>
+    </Provider>
   )
+
+  // const initialState = JSON.stringify(store.getState())
+  // 防止XSS攻击(恶意代码)
+  const initialState = serialize(store.getState())
   return `
   <html>
     <head>
@@ -26,6 +35,7 @@ export default (req) => {
     </head>
     <body>
       <div id='root'>${content}</div>
+      <script>window.INITIAL_STATE=${initialState}</script>
       <script src='bundle.js'></script>
     </body>
   </html>

@@ -9,7 +9,9 @@ export default [
   },
   {
     path: '/list',
-    component: List,
+    // component: List,
     // exact: true
+    // 将 loadData 保存至路由对象中
+    ...List 
   }
 ]
